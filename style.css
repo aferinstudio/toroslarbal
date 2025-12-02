@@ -1,0 +1,370 @@
+    /* ======================================= */
+/* 1. TEMEL STİLLER VE RENK PALETİ */
+/* ======================================= */
+
+:root {
+    /* Marka Renkleri */
+    --color-primary: #ffb800;    /* Bal Rengi (Canlı Sarı/Altın) */
+    --color-secondary: #006400;  /* Koyu Yeşil (Toros Doğası) */
+    --color-dark: #333;          /* Koyu Metinler ve Footer Arka Planı */
+    --color-light: #f4f4f4;      /* Açık Gri Arka Planlar */
+    --color-text: #555;          /* Genel Metin Rengi */
+
+    /* Font Ailesi */
+    --font-primary: 'Poppins', sans-serif;
+}
+
+/* Sayfa Sıfırlaması ve Temel Font Ayarları */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: white;
+}
+
+/* Genişlik Kısıtlayıcı (Ortalama İçerik) */
+.container {
+    width: 85%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Tekrarlanan Bölüm Stilleri */
+.section-padding {
+    padding: 80px 0; /* Üstten ve alttan boşluk */
+}
+.section-dark {
+    background-color: var(--color-dark);
+    color: white;
+}
+.section-dark h2 {
+    color: var(--color-primary); /* Başlık rengi karanlıkta bal rengi olsun */
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--color-dark);
+}
+
+/* ======================================= */
+/* 2. NAVİGASYON (HEADER VE LOGO) */
+/* ======================================= */
+
+#navbar {
+    background-color: white; 
+    border-bottom: 3px solid var(--color-primary); /* Bal rengi çizgi */
+    position: fixed; /* Ekranın üstünde sabit kalır */
+    width: 100%;
+    z-index: 100; /* Her şeyin üstünde görünür */
+    padding: 15px 0;
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    width: 150px; /* Logonun boyutunu ayarlayın */
+}
+
+#navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+#navbar ul li a {
+    color: var(--color-dark);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0 15px;
+    transition: color 0.3s;
+}
+
+#navbar ul li a:hover {
+    color: var(--color-primary); /* Üzerine gelince bal rengi */
+}
+
+/* ======================================= */
+/* 3. HAREKETE GEÇİRİCİ BUTONLAR (CTA) */
+/* ======================================= */
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    margin-top: 15px;
+}
+
+.cta-button.primary {
+    background-color: var(--color-primary);
+    color: var(--color-dark); /* Sarı üzerinde koyu metin */
+    border: 2px solid var(--color-primary);
+}
+
+.cta-button.primary:hover {
+    background-color: #e6a800; /* Hafif koyu sarı */
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    color: var(--color-dark);
+    border: 2px solid var(--color-primary);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+}
+
+/* ======================================= */
+/* 4. HERO SLIDER (ANA BÖLÜM) STİLLERİ */
+/* ======================================= */
+
+#hero-slider {
+    position: relative;
+    /* Navigasyonun altından başlaması için boşluk */
+    margin-top: 65px; 
+    overflow: hidden; /* Dönen görsellerin taşmasını engelle */
+    height: 100vh;
+}
+
+.slider-container {
+    display: flex; /* Görselleri yan yana dizer */
+    /* JS ile kaydırma yapılacağı için genişlik ayarını şimdilik bırakıyoruz */
+    height: 100%;
+    transition: transform 0.5s ease-in-out; /* Kaydırma efekti için */
+}
+
+.slide {
+    min-width: 100%; /* Her bir görselin slider genişliği kadar yer kaplamasını sağlar */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 10%;
+    color: white; /* Metin rengi */
+    
+    /* Arka Plan Görseli Ayarları (index.html'deki stil bu kısmı ezecektir) */
+    background-size: cover;
+    background-position: center;
+}
+
+/* Sloganların Okunabilirliğini Artırma */
+#hero-slider h1 {
+    font-size: 3.5em;
+    color: white;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8); /* Gölge ile okunurluğu artır */
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+#hero-slider .cta-button {
+    font-size: 1.2em;
+    padding: 15px 35px;
+}
+/* ======================================= */
+/* 5. BALIN YOLCULUĞU (TIMELINE) STİLLERİ */
+/* ======================================= */
+
+#yolculuk {
+    background-color: var(--color-light); /* Açık gri zemin */
+}
+
+#yolculuk h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: var(--color-secondary); /* Koyu yeşil başlık */
+}
+
+.timeline {
+    display: flex;
+    justify-content: space-between; /* Adımları yatayda eşit aralıklarla dağıt */
+    position: relative;
+    padding: 30px 0;
+}
+
+/* Timeline'ın ortasındaki çizgiyi oluşturma */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 50%; /* Dikeyde ortala */
+    left: 5%;
+    right: 5%;
+    height: 4px; /* Çizgi kalınlığı */
+    background-color: var(--color-primary); /* Bal rengi çizgi */
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.step {
+    flex: 1; /* Eşit genişlik kapla */
+    padding: 0 15px;
+    text-align: center;
+    position: relative;
+    z-index: 2; /* İçeriğin çizginin üstünde olmasını sağla */
+}
+
+.step h3 {
+    color: var(--color-dark);
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+/* Her Adımın Üstündeki Bal Damlası/Noktayı Oluşturma */
+.step::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Daire şekli */
+    background-color: white; /* İç Daire */
+    border: 4px solid var(--color-primary); /* Bal rengi dış halka */
+    transform: translate(-50%, -50%);
+}
+
+.step p {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+    margin-top: 30px; /* Çizgiden aşağı itme */
+}
+
+/* ======================================= */
+/* 6. MÜŞTERİ YORUMLARI (SOSYAL KANIT) STİLLERİ */
+/* ======================================= */
+
+#yorumlar {
+    /* section-dark class'ı sayesinde arka plan koyu */
+    text-align: center;
+}
+
+#yorumlar h2 {
+    color: var(--color-primary); /* Bal Rengi Başlık */
+    margin-bottom: 40px;
+}
+
+.carousel-container {
+    /* JS ile dönecek yorumlar için kapsayıcı */
+    display: flex;
+    overflow-x: hidden; /* Dönen yorumların taşmasını gizle */
+    width: 100%;
+    margin: 0 auto;
+    /* transition burada JS kodu ile eklenecektir */
+}
+
+.yorum-kart {
+    flex: 0 0 33.33%; /* Her kartın container'ın 1/3'ünü kaplamasını sağlar */
+    min-width: 33.33%;
+    background: white;
+    color: var(--color-dark);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 0 15px; /* Kartlar arasında boşluk */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+.yorum-kart p {
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 15px;
+}
+
+.yorum-kart span {
+    display: block;
+    font-weight: 600;
+    color: var(--color-secondary); /* Koyu yeşil imza */
+}
+
+/* ======================================= */
+/* 7. SON HAREKETE GEÇİRİCİ ÇAĞRI (FINAL CTA) */
+/* ======================================= */
+
+#final-cta {
+    background-color: var(--color-light);
+    border-top: 5px solid var(--color-primary); /* Bal rengi çizgi */
+    text-align: center;
+}
+
+#final-cta h2 {
+    font-size: 2.5em;
+    color: var(--color-secondary);
+}
+
+.cta-button.large {
+    font-size: 1.5em;
+    padding: 18px 40px;
+}
+
+/* ======================================= */
+/* 8. FOOTER (İLETİŞİM VE ALT BİLGİ) STİLLERİ */
+/* ======================================= */
+
+#iletisim {
+    background-color: var(--color-dark); /* section-dark class'ı ile aynı */
+    color: var(--color-light); /* Açık gri metin */
+    padding: 60px 0 20px 0;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 eşit sütun */
+    gap: 30px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #444; /* İnce ayırıcı çizgi */
+}
+
+.footer-grid h3 {
+    color: var(--color-primary); /* Bal rengi başlıklar */
+    margin-bottom: 20px;
+    font-size: 1.2em;
+}
+
+.footer-grid p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: var(--color-light);
+    text-decoration: none;
+    line-height: 2;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--color-primary);
+}
+
+/* Telif Hakkı (Copyright) Bölümü */
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    font-size: 0.8em;
+    color: #888;
+}
